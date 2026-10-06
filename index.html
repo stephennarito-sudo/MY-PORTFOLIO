@@ -3,299 +3,427 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LOUISSIE STEPHEN NARITO — Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Louissie Stephen Narito — Portfolio</title>
   <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-  <style type="text/tailwindcss">
-    @layer utilities {
-      .text-9xl-responsive { font-size: clamp(3rem, 12vw, 7rem); line-height: 1; }
-      .text-8xl-responsive { font-size: clamp(2.5rem, 10vw, 6rem); line-height: 1; }
-      .yellow-shadow { box-shadow: 8px 8px 0 #facc15; }
-      .yellow-border { border: 3px solid #000; }
-      .card-yellow { background: #facc15; border: 3px solid #000; border-radius: 1.5rem; }
-      .card-white { background: #fff; border: 3px solid #000; border-radius: 1.5rem; }
-      .geometric-circle { border-radius: 50%; border: 3px solid #000; }
-      .hover-lift { transition: transform 0.3s, box-shadow 0.3s; }
-      .hover-lift:hover { transform: translateY(-6px); box-shadow: 10px 10px 0 #facc15; }
-    }
-  </style>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            bg: '#f0f0f0',
-            yellow: '#facc15',
-            dark: '#000000',
-          },
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-            bold: ['"Arial Black"', 'sans-serif'],
-          },
-        }
-      }
-    }
-  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <style>
-    html { scroll-behavior: smooth; }
-    body { background: #f0f0f0; font-family: 'Inter', sans-serif; }
-    .fade-in { opacity: 0; transform: translateY(30px); animation: fadeIn 0.8s forwards; }
-    @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
-    .nav-link { position: relative; }
-    .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 3px solid #facc15; transition: width 0.3s; }
-    .nav-link:hover::after { width: 100%; }
+    :root {
+      --bg-dark: #0F0F23;
+      --purple: #7B2CBF;
+      --yellow: #FFD60A;
+      --cyan: #00F5D4;
+      --pink: #FF2E88;
+      --card: #1A1A3C;
+      --card-light: #2A2A5C;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg-dark);
+      color: white;
+      overflow-x: hidden;
+    }
+    .font-bangers { font-family: 'Bangers', cursive; letter-spacing: 2px; }
+
+    /* HANGING PAPER / BOOK ANIMATION */
+    .hanging-wrapper {
+      position: relative;
+      transform-origin: top center;
+      animation: hangSwing 3s ease-in-out infinite;
+    }
+    .hanging-string {
+      width: 3px;
+      height: 40px;
+      background: linear-gradient(to bottom, #888, #555);
+      margin: 0 auto;
+      border-radius: 2px;
+    }
+    .hanging-pin {
+      width: 16px;
+      height: 16px;
+      background: var(--yellow);
+      border-radius: 50%;
+      margin: 0 auto -8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      z-index: 10;
+      position: relative;
+    }
+    @keyframes hangSwing {
+      0%, 100% { transform: rotate(-2deg); }
+      50% { transform: rotate(2deg); }
+    }
+    .paper-card {
+      background: var(--card);
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(123,44,191,0.25), inset 0 1px 0 rgba(255,255,255,0.1);
+      border: 2px solid rgba(123,44,191,0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    .paper-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -50%; width: 200%; height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.05), transparent);
+      transform: skewX(-15deg);
+      pointer-events: none;
+    }
+
+    /* FLOATING DECORATIONS */
+    .star {
+      position: absolute;
+      color: var(--yellow);
+      animation: twinkle 2s ease-in-out infinite;
+    }
+    @keyframes twinkle {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+    .squiggle {
+      position: absolute;
+      color: var(--cyan);
+      font-size: 2rem;
+      opacity: 0.7;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(15,15,35,0.85); backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+    }
+    .nav-links a {
+      color: white; text-decoration: none; font-weight: 600;
+      padding: 0.5rem 1rem; border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    .nav-links a:hover {
+      background: var(--purple); color: var(--yellow);
+      transform: translateY(-2px);
+    }
+
+    /* HERO */
+    .hero-tag {
+      background: rgba(123,44,191,0.3);
+      border: 2px solid var(--purple);
+      border-radius: 999px;
+      padding: 0.5rem 1.25rem;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+    }
+    .chat-bubble {
+      background: var(--yellow);
+      color: #000;
+      border-radius: 20px 20px 20px 4px;
+      padding: 0.75rem 1.25rem;
+      font-weight: 700;
+      display: inline-block;
+      transform: rotate(3deg);
+      box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+    }
+    .btn-yellow {
+      background: var(--yellow); color: #000; font-weight: 800;
+      padding: 0.75rem 2rem; border-radius: 12px;
+      border: none; cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+    }
+    .btn-yellow:hover { transform: translate(-3px,-3px); box-shadow: 7px 7px 0 rgba(0,0,0,0.2); }
+    .btn-cyan {
+      background: var(--cyan); color: #000; font-weight: 800;
+      padding: 0.75rem 2rem; border-radius: 12px;
+      border: none; cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+    }
+    .btn-cyan:hover { transform: translate(-3px,-3px); box-shadow: 7px 7px 0 rgba(0,0,0,0.2); }
+
+    /* SECTION FADE */
+    .fade-in {
+      opacity: 0; transform: translateY(40px);
+      transition: all 0.8s ease-out;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* PROJECT CARDS */
+    .project-card {
+      background: var(--card-light); border-radius: 16px; overflow: hidden;
+      transition: all 0.3s ease; border: 2px solid transparent;
+    }
+    .project-card:hover {
+      border-color: var(--yellow); transform: translateY(-6px);
+      box-shadow: 0 10px 30px rgba(255,214,10,0.2);
+    }
+    .skill-icon {
+      width: 60px; height: 60px; background: var(--card-light);
+      border-radius: 12px; display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; font-weight: 800; color: var(--cyan);
+      border: 2px solid var(--purple);
+      transition: all 0.3s ease;
+    }
+    .skill-icon:hover { background: var(--purple); color: white; transform: scale(1.1); }
+
+    /* FOOTER */
+    footer {
+      background: var(--card); padding: 3rem; text-align: center;
+      border-top: 3px solid var(--purple);
+    }
+
+    @media (max-width: 768px) {
+      .hero-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
-<body class="bg-bg text-dark overflow-x-hidden">
+<body>
 
-  <!-- Navigation -->
-  <nav class="fixed top-0 left-0 w-full z-50 bg-bg/90 backdrop-blur-sm border-b-2 border-dark/10 px-6 py-4">
+  <!-- NAVIGATION -->
+  <nav>
     <div class="max-w-7xl mx-auto flex justify-between items-center">
-      <a href="#home" class="font-bold text-xl">LSN</a>
-      <div class="hidden md:flex gap-8 font-semibold">
-        <a href="#home" class="nav-link">HOME</a>
-        <a href="#about" class="nav-link">ABOUT</a>
-        <a href="#education" class="nav-link">EDUCATION</a>
-        <a href="#skills" class="nav-link">SKILLS</a>
-        <a href="#projects" class="nav-link">PROJECTS</a>
-        <a href="#contact" class="nav-link">CONTACT</a>
+      <span class="font-bangers text-2xl text-yellow-400">LSN</span>
+      <div class="nav-links hidden md:flex gap-4">
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
       </div>
-      <button id="menuBtn" class="md:hidden text-2xl"><i class="fa fa-bars"></i></button>
-    </div>
-    <!-- Mobile Menu -->
-    <div id="mobileMenu" class="hidden md:hidden absolute top-full left-0 w-full bg-bg border-b-2 border-dark/10 py-4 px-6">
-      <div class="flex flex-col gap-4 font-semibold">
-        <a href="#home">HOME</a>
-        <a href="#about">ABOUT</a>
-        <a href="#education">EDUCATION</a>
-        <a href="#skills">SKILLS</a>
-        <a href="#projects">PROJECTS</a>
-        <a href="#contact">CONTACT</a>
-      </div>
+      <button class="md:hidden text-2xl"><i class="fa fa-bars"></i></button>
     </div>
   </nav>
 
-  <!-- HERO SECTION — Matching Reference Style -->
-  <section id="home" class="min-h-screen pt-28 pb-16 px-6 md:px-12">
-    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-      <div class="fade-in">
-        <p class="text-lg font-semibold mb-2 tracking-wider text-dark/70">CREATIVE IT PORTFOLIO</p>
-        <h1 class="text-9xl-responsive font-black tracking-tight">
-          <span class="block">PORTO</span>
-          <span class="block text-yellow">FOLIO.</span>
-        </h1>
-        <h2 class="text-3xl md:text-4xl font-bold mt-6 mb-2">LOUISSIE STEPHEN</h2>
-        <h3 class="text-2xl md:text-3xl font-bold text-yellow">NARITO</h3>
-        <p class="text-lg mt-4 max-w-md">Bachelor of Science in Information Technology</p>
-        <p class="font-semibold mt-2">SYSTEM CREATOR | EDITOR | SOFTWARE ENGINEER</p>
-        <p class="mt-4 text-dark/80 max-w-md">
-          Passionate about transforming ideas into functional digital solutions — building systems, software, and web experiences.
-        </p>
-        <div class="flex gap-4 mt-8 flex-wrap">
-          <a href="#projects" class="card-yellow px-8 py-3 font-bold hover-lift inline-block">VIEW PROJECTS</a>
-          <a href="#contact" class="bg-dark text-white px-8 py-3 font-bold rounded-full hover-lift inline-block">CONNECT</a>
-        </div>
-      </div>
-      <div class="relative fade-in" style="animation-delay: 0.2s">
-        <!-- Decorative elements like reference -->
-        <div class="absolute -top-4 -left-4 w-20 h-20 rounded-full bg-yellow z-0"></div>
-        <div class="absolute -bottom-4 -right-4 w-32 h-32 rounded-full border-3 border-dark z-0"></div>
-        <!-- Profile Photo -->
-        <div class="relative z-10 card-yellow p-3">
-          <img src="profile.jpg" alt="Louissie Stephen Narito" class="w-full h-auto object-cover rounded-xl yellow-border" />
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- HERO SECTION -->
+  <section id="home" class="min-h-screen pt-28 pb-16 px-6 relative overflow-hidden">
+    <!-- Floating decorations -->
+    <span class="star absolute top-32 left-10 text-2xl">★</span>
+    <span class="star absolute top-48 right-20 text-xl" style="animation-delay: 0.5s">✦</span>
+    <span class="star absolute bottom-40 left-1/4 text-lg" style="animation-delay: 1s">★</span>
+    <span class="squiggle absolute bottom-20 right-10">〰️</span>
+    <span class="squiggle absolute top-60 left-1/3">✏️</span>
 
-  <!-- ABOUT SECTION -->
-  <section id="about" class="py-20 px-6 md:px-12">
     <div class="max-w-7xl mx-auto">
-      <h2 class="text-5xl font-black mb-12 relative inline-block">
-        <span class="bg-yellow px-4 py-2 rounded-lg">ABOUT ME</span>
-      </h2>
-      <div class="grid md:grid-cols-3 gap-10 items-center">
-        <div class="md:col-span-1 fade-in">
-          <div class="card-white p-3 relative">
-            <div class="absolute -top-3 -left-3 w-12 h-12 bg-yellow rounded-full"></div>
-            <img src="profile.jpg" alt="Louissie Stephen Narito" class="w-full h-auto rounded-lg" />
+      <div class="grid md:grid-cols-2 gap-12 items-center hero-grid">
+        <!-- Left Content -->
+        <div class="fade-in">
+          <p class="hero-tag mb-6">👋 Hey, I'm</p>
+          
+          <h1 class="font-bangers text-6xl md:text-8xl leading-none mb-4">
+            LOUISSIE<br>
+            <span class="text-yellow-400">STEPHEN</span><br>
+            <span class="text-cyan-400">NARITO</span>
+          </h1>
+          
+          <p class="text-lg text-gray-300 mb-2">System Creator • Web Developer • Software Engineer</p>
+          
+          <div class="chat-bubble mb-8">
+            Let's Create Something Awesome! ⚡
+          </div>
+          
+          <div class="flex flex-wrap gap-4">
+            <a href="#projects" class="btn-yellow">
+              <i class="fa fa-play-circle mr-2"></i> View Projects
+            </a>
+            <a href="#contact" class="btn-cyan">
+              Connect With Me <i class="fa fa-arrow-right ml-1"></i>
+            </a>
           </div>
         </div>
-        <div class="md:col-span-2 fade-in" style="animation-delay: 0.2s">
-          <h3 class="text-3xl font-bold mb-6">" HELLO! "</h3>
-          <p class="text-lg mb-4">
-            I'm <strong>Louissie Stephen Narito</strong>, an IT student passionate about system development, software engineering, web development, and digital editing.
-          </p>
-          <p class="text-lg mb-4">
-            I enjoy creating practical technology solutions that help people and organizations solve problems and improve their processes — turning ideas into functional, impactful digital tools.
-          </p>
-          <p class="text-lg">
-            From designing information systems to building modern websites and editing digital content, I bring ideas to life through clean code and creative design.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- EDUCATION SECTION -->
-  <section id="education" class="py-20 px-6 md:px-12 bg-yellow/20">
-    <div class="max-w-7xl mx-auto">
-      <h2 class="text-5xl font-black mb-12 relative inline-block">
-        <span class="bg-dark text-white px-4 py-2 rounded-lg">EDUCATION</span>
-      </h2>
-      <div class="card-yellow p-8 md:p-10 fade-in">
-        <h3 class="text-2xl md:text-3xl font-bold mb-4">Bachelor of Science in Information Technology</h3>
-        <p class="text-lg mb-4">
-          Currently pursuing a degree in Information Technology — building skills in system creation, programming, software development, web technologies, database management, and digital solutions.
-        </p>
-        <p class="font-semibold">Focus: System Development • Web Development • Software Engineering • Digital Editing</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS / TABLE OF CONTENT STYLE — Like Reference -->
-  <section id="skills" class="py-20 px-6 md:px-12">
-    <div class="max-w-7xl mx-auto">
-      <h2 class="text-5xl font-black mb-12 text-center">
-        <span class="bg-yellow px-4 py-2 rounded-lg">WHAT I DO</span>
-      </h2>
-      <p class="text-center text-xl font-semibold mb-12">— MY SKILLS —</p>
-      
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Skill 1 -->
-        <div class="card-yellow p-6 text-center hover-lift fade-in">
-          <i class="fa fa-cogs text-4xl mb-4"></i>
-          <h3 class="font-bold text-xl mb-2">SYSTEM CREATOR</h3>
-          <p class="text-sm">Designing information systems that solve real-world problems.</p>
-        </div>
-        <!-- Skill 2 -->
-        <div class="card-yellow p-6 text-center hover-lift fade-in" style="animation-delay: 0.1s">
-          <i class="fa fa-code text-4xl mb-4"></i>
-          <h3 class="font-bold text-xl mb-2">WEB DEVELOPER</h3>
-          <p class="text-sm">Building responsive, modern websites and web applications.</p>
-        </div>
-        <!-- Skill 3 -->
-        <div class="card-yellow p-6 text-center hover-lift fade-in" style="animation-delay: 0.2s">
-          <i class="fa fa-laptop text-4xl mb-4"></i>
-          <h3 class="font-bold text-xl mb-2">SOFTWARE ENGINEER</h3>
-          <p class="text-sm">Developing applications using programming & modern tech.</p>
-        </div>
-        <!-- Skill 4 -->
-        <div class="card-yellow p-6 text-center hover-lift fade-in" style="animation-delay: 0.3s">
-          <i class="fa fa-picture-o text-4xl mb-4"></i>
-          <h3 class="font-bold text-xl mb-2">DIGITAL EDITOR</h3>
-          <p class="text-sm">Creating graphics, documents, and visual content.</p>
+        <!-- Right: Hanging Profile Card -->
+        <div class="flex justify-center fade-in" style="animation-delay: 0.2s">
+          <div class="hanging-wrapper">
+            <div class="hanging-pin"></div>
+            <div class="hanging-string"></div>
+            <div class="paper-card p-6 w-80">
+              <img src="profile.jpg" alt="Louissie Stephen Narito" 
+                   class="w-full h-80 object-cover rounded-xl mb-4 border-4 border-yellow-400" />
+              <h3 class="font-bangers text-2xl text-center text-yellow-400">LOUISSIE</h3>
+              <p class="text-center text-gray-300">BSIT Student • Developer</p>
+              <p class="text-sm text-center text-cyan-400 mt-2">Building digital solutions 💜</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- PROJECTS SECTION -->
-  <section id="projects" class="py-20 px-6 md:px-12 bg-dark text-white">
+  <section id="projects" class="py-20 px-6">
     <div class="max-w-7xl mx-auto">
-      <h2 class="text-5xl font-black mb-12 text-center">
-        <span class="bg-yellow text-dark px-4 py-2 rounded-lg">MY PROJECTS</span>
-      </h2>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Project 1 -->
-        <div class="bg-white text-dark rounded-2xl p-6 border-4 border-yellow hover-lift fade-in">
-          <h3 class="font-bold text-xl mb-2">Information System Development</h3>
-          <p class="mb-4">Designing functional systems for organizations & academic use.</p>
-          <span class="bg-yellow/30 px-2 py-1 rounded text-sm mr-2">System Design</span>
-          <span class="bg-yellow/30 px-2 py-1 rounded text-sm">Database</span>
-          <a href="#" class="inline-block mt-4 bg-yellow text-dark px-4 py-2 rounded-lg font-bold">VIEW →</a>
+      <div class="text-center mb-12 fade-in">
+        <h2 class="font-bangers text-5xl text-yellow-400 mb-4">FEATURED PROJECTS</h2>
+        <p class="text-gray-400">My latest works & creations</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Project 1 - Hanging Style -->
+        <div class="flex flex-col items-center fade-in">
+          <div class="hanging-wrapper">
+            <div class="hanging-pin"></div>
+            <div class="hanging-string"></div>
+            <div class="project-card p-5 w-full">
+              <div class="bg-purple-900/50 rounded-lg h-40 flex items-center justify-center mb-4">
+                <i class="fa fa-code text-5xl text-yellow-400"></i>
+              </div>
+              <h3 class="font-bold text-xl mb-2">Web Development</h3>
+              <p class="text-gray-400 text-sm mb-3">Responsive & functional websites built with modern tools.</p>
+              <span class="text-cyan-400 text-sm font-semibold">HTML • CSS • JS</span>
+            </div>
+          </div>
         </div>
+
         <!-- Project 2 -->
-        <div class="bg-white text-dark rounded-2xl p-6 border-4 border-yellow hover-lift fade-in" style="animation-delay: 0.1s">
-          <h3 class="font-bold text-xl mb-2">Web Development</h3>
-          <p class="mb-4">Building responsive, fast, and accessible websites.</p>
-          <span class="bg-yellow/30 px-2 py-1 rounded text-sm mr-2">HTML</span>
-          <span class="bg-yellow/30 px-2 py-1 rounded text-sm mr-2">CSS</span>
-          <span class="bg-yellow/30 px-2 py-1 rounded text-sm">JS</span>
-          <a href="#" class="inline-block mt-4 bg-yellow text-dark px-4 py-2 rounded-lg font-bold">VIEW →</a>
+        <div class="flex flex-col items-center fade-in" style="animation-delay: 0.15s">
+          <div class="hanging-wrapper">
+            <div class="hanging-pin"></div>
+            <div class="hanging-string"></div>
+            <div class="project-card p-5 w-full">
+              <div class="bg-cyan-900/50 rounded-lg h-40 flex items-center justify-center mb-4">
+                <i class="fa fa-database text-5xl text-cyan-400"></i>
+              </div>
+              <h3 class="font-bold text-xl mb-2">System Development</h3>
+              <p class="text-gray-400 text-sm mb-3">Information systems & database solutions.</p>
+              <span class="text-yellow-400 text-sm font-semibold">Database • Design</span>
+            </div>
+          </div>
         </div>
+
         <!-- Project 3 -->
-        <div class="bg-white text-dark rounded-2xl p-6 border-4 border-yellow hover-lift fade-in" style="animation-delay: 0.2s">
-          <h3 class="font-bold text-xl mb-2">Software Development</h3>
-          <p class="mb-4">Creating applications with clean code & efficient logic.</p>
-          <span class="bg-yellow/30 px-2 py-1 rounded text-sm">Programming</span>
-          <a href="#" class="inline-block mt-4 bg-yellow text-dark px-4 py-2 rounded-lg font-bold">VIEW →</a>
-        </div>
-        <!-- Project 4 -->
-        <div class="bg-white text-dark rounded-2xl p-6 border-4 border-yellow hover-lift fade-in" style="animation-delay: 0.3s">
-          <h3 class="font-bold text-xl mb-2">Digital Editing</h3>
-          <p class="mb-4">Producing professional visual content & graphics.</p>
-          <span class="bg-yellow/30 px-2 py-1 rounded text-sm">Graphics</span>
-          <a href="#" class="inline-block mt-4 bg-yellow text-dark px-4 py-2 rounded-lg font-bold">VIEW →</a>
-        </div>
-        <!-- Project 5 -->
-        <div class="bg-white text-dark rounded-2xl p-6 border-4 border-yellow hover-lift fade-in" style="animation-delay: 0.4s">
-          <h3 class="font-bold text-xl mb-2">Database Management</h3>
-          <p class="mb-4">Designing secure & efficient data structures.</p>
-          <span class="bg-yellow/30 px-2 py-1 rounded text-sm">SQL</span>
-          <a href="#" class="inline-block mt-4 bg-yellow text-dark px-4 py-2 rounded-lg font-bold">VIEW →</a>
-        </div>
-        <!-- Project 6 -->
-        <div class="bg-white text-dark rounded-2xl p-6 border-4 border-yellow hover-lift fade-in" style="animation-delay: 0.5s">
-          <h3 class="font-bold text-xl mb-2">Academic IT Projects</h3>
-          <p class="mb-4">Applying IT knowledge to solve real-world problems.</p>
-          <span class="bg-yellow/30 px-2 py-1 rounded text-sm">Research</span>
-          <a href="#" class="inline-block mt-4 bg-yellow text-dark px-4 py-2 rounded-lg font-bold">VIEW →</a>
+        <div class="flex flex-col items-center fade-in" style="animation-delay: 0.3s">
+          <div class="hanging-wrapper">
+            <div class="hanging-pin"></div>
+            <div class="hanging-string"></div>
+            <div class="project-card p-5 w-full">
+              <div class="bg-pink-900/50 rounded-lg h-40 flex items-center justify-center mb-4">
+                <i class="fa fa-paint-brush text-5xl text-pink-400"></i>
+              </div>
+              <h3 class="font-bold text-xl mb-2">Digital Design</h3>
+              <p class="text-gray-400 text-sm mb-3">Graphics, layouts & creative visuals.</p>
+              <span class="text-pink-400 text-sm font-semibold">Design • Editing</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- SKILLS SECTION -->
+  <section id="skills" class="py-20 px-6 bg-purple-950/30">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12 fade-in">
+        <h2 class="font-bangers text-5xl text-cyan-400 mb-4">MY SKILLS</h2>
+        <p class="text-gray-400">Tools & technologies I work with</p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 fade-in">
+        <div class="flex flex-col items-center gap-2">
+          <div class="skill-icon">H</div>
+          <span class="font-semibold">HTML</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <div class="skill-icon">C</div>
+          <span class="font-semibold">CSS</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <div class="skill-icon">JS</div>
+          <span class="font-semibold">JavaScript</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <div class="skill-icon">SQL</div>
+          <span class="font-semibold">Database</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <div class="skill-icon"><i class="fa fa-code"></i></div>
+          <span class="font-semibold">Programming</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <div class="skill-icon"><i class="fa fa-picture-o"></i></div>
+          <span class="font-semibold">Design</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <div class="skill-icon"><i class="fa fa-laptop"></i></div>
+          <span class="font-semibold">Systems</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <div class="skill-icon"><i class="fa fa-users"></i></div>
+          <span class="font-semibold">Teamwork</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="py-20 px-6">
+    <div class="max-w-4xl mx-auto">
+      <div class="paper-card p-8 fade-in">
+        <h2 class="font-bangers text-4xl text-yellow-400 mb-6">About Me ✏️</h2>
+        
+        <p class="text-lg mb-4">
+          I'm <strong class="text-cyan-400">Louissie Stephen Narito</strong> — a BSIT student passionate about turning ideas into functional digital solutions.
+        </p>
+        <p class="text-lg mb-4">
+          From building websites to designing information systems, I love creating tools that help people and organizations. Every project is a chance to learn, grow, and make something useful.
+        </p>
+        <p class="text-lg text-yellow-300 font-semibold">
+          🎯 Goal: To become a skilled developer and make a positive impact through technology.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT SECTION -->
-  <section id="contact" class="py-20 px-6 md:px-12">
-    <div class="max-w-4xl mx-auto card-yellow p-8 md:p-12">
-      <h2 class="text-4xl font-black mb-6">" LET'S CONNECT "</h2>
-      <p class="text-lg mb-8 max-w-lg">
-        Interested in working together, discussing a project, or learning more about my work? Feel free to get in touch.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4">
-        <a href="mailto:your.email@example.com" class="bg-dark text-white px-6 py-3 rounded-lg font-bold hover-lift flex items-center gap-2">
-          <i class="fa fa-envelope"></i> EMAIL
+  <section id="contact" class="py-20 px-6">
+    <div class="max-w-2xl mx-auto text-center fade-in">
+      <h2 class="font-bangers text-5xl text-yellow-400 mb-4">Let's Make Something DOPE! 🚀</h2>
+      <p class="text-lg text-gray-300 mb-8">Ready to collaborate or just say hi? Let's connect!</p>
+      
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="mailto:your.email@example.com" class="btn-yellow">
+          <i class="fa fa-envelope mr-2"></i> Email Me
         </a>
-        <a href="https://facebook.com/yourprofile" target="_blank" class="bg-dark text-white px-6 py-3 rounded-lg font-bold hover-lift flex items-center gap-2">
-          <i class="fa fa-facebook"></i> FACEBOOK
+        <a href="#" class="btn-cyan">
+          <i class="fa fa-facebook mr-2"></i> Facebook
         </a>
-        <a href="https://github.com/yourusername" target="_blank" class="bg-dark text-white px-6 py-3 rounded-lg font-bold hover-lift flex items-center gap-2">
-          <i class="fa fa-github"></i> GITHUB
+        <a href="#" class="bg-purple-600 text-white font-bold py-3 px-6 rounded-xl hover:bg-purple-500 transition-all shadow-lg">
+          <i class="fa fa-github mr-2"></i> GitHub
         </a>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-dark text-white py-8 px-6 text-center">
-    <p class="font-bold text-xl mb-2">© 2026 LOUISSIE STEPHEN NARITO</p>
-    <p class="text-gray-400">Bachelor of Science in Information Technology</p>
+  <footer>
+    <p class="font-bangers text-2xl text-yellow-400 mb-2">LOUISSIE STEPHEN NARITO</p>
+    <p class="text-gray-400">BSIT Student • System Creator • Web Developer</p>
+    <p class="mt-4 text-sm text-gray-500">© 2026 — Built with 💜 and lots of code</p>
   </footer>
 
-  <!-- JavaScript -->
+  <!-- ANIMATION SCRIPT -->
   <script>
-    // Mobile menu toggle
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-    // Close mobile menu when clicking a link
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
-    });
-    // Fade-in animation on scroll
+    // Fade-in on scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
-        if (e.isIntersecting) e.target.style.animationPlayState = 'running';
+        if (e.isIntersecting) e.target.classList.add('visible');
       });
     }, { threshold: 0.1 });
+    
     document.querySelectorAll('.fade-in').forEach(el => {
-      el.style.animationPlayState = 'paused';
       observer.observe(el);
     });
+
+    // Mobile menu toggle
+    const menuBtn = document.querySelector('button.md\\:hidden');
+    const navLinks = document.querySelector('.nav-links');
+    menuBtn?.addEventListener('click', () => {
+      navLinks.classList.toggle('hidden');
+      navLinks.classList.toggle('absolute');
+      navLinks.classList.toggle('top-full');
+      navLinks.classList.toggle('left-0');
+      navLinks.classList.toggle('w-full');
+      navLinks.classList.toggle('bg-black/90');
+      navLinks.classList.toggle('flex-col');
+      navLinks.classList.toggle('p-4');
+    });
   </script>
+
 </body>
 </html>
