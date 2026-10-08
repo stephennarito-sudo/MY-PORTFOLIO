@@ -26,7 +26,6 @@
     }
     .font-bangers { font-family: 'Bangers', cursive; letter-spacing: 2px; }
 
-    /* HANGING PAPER / BOOK ANIMATION */
     .hanging-wrapper {
       position: relative;
       transform-origin: top center;
@@ -70,7 +69,6 @@
       pointer-events: none;
     }
  
-    /* FLOATING DECORATIONS */
     .star {
       position: absolute;
       color: var(--yellow);
@@ -87,7 +85,6 @@
       opacity: 0.7;
     }
 
-    /* NAV */
     nav {
       position: fixed; top: 0; width: 100%; z-index: 100;
       background: rgba(15,15,35,0.85); backdrop-filter: blur(10px);
@@ -103,7 +100,6 @@
       transform: translateY(-2px);
     }
 
-    /* HERO */
     .hero-tag {
       background: rgba(123,44,191,0.3);
       border: 2px solid var(--purple);
@@ -138,14 +134,12 @@
     }
     .btn-cyan:hover { transform: translate(-3px,-3px); box-shadow: 7px 7px 0 rgba(0,0,0,0.2); }
 
-    /* SECTION FADE */
     .fade-in {
       opacity: 0; transform: translateY(40px);
       transition: all 0.8s ease-out;
     }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-    /* PROJECT CARDS */
     .project-card {
       background: var(--card-light); border-radius: 16px; overflow: hidden;
       transition: all 0.3s ease; border: 2px solid transparent;
@@ -163,7 +157,6 @@
     }
     .skill-icon:hover { background: var(--purple); color: white; transform: scale(1.1); }
 
-    /* EDUCATION & INFO CARDS */
     .edu-card, .info-card {
       background: var(--card-light);
       border-radius: 12px;
@@ -192,7 +185,6 @@
     .info-label { color: var(--cyan); font-weight: 600; }
     .info-value { color: white; }
 
-    /* FOOTER */
     footer {
       background: var(--card); padding: 3rem; text-align: center;
       border-top: 3px solid var(--purple);
@@ -205,7 +197,6 @@
 </head>
 <body>
 
-  <!-- NAVIGATION -->
   <nav>
     <div class="max-w-7xl mx-auto flex justify-between items-center">
       <span class="font-bangers text-2xl text-yellow-400">LSN</span>
@@ -217,13 +208,11 @@
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
       </div>
-      <button class="md:hidden text-2xl"><i class="fa fa-bars"></i></button>
+      <button class="md:hidden text-2xl text-white"><i class="fa fa-bars"></i></button>
     </div>
   </nav>
 
-  <!-- HERO SECTION -->
   <section id="home" class="min-h-screen pt-28 pb-16 px-6 relative overflow-hidden">
-    <!-- Floating decorations -->
     <span class="star absolute top-32 left-10 text-2xl">★</span>
     <span class="star absolute top-48 right-20 text-xl" style="animation-delay: 0.5s">✦</span>
     <span class="star absolute bottom-40 left-1/4 text-lg" style="animation-delay: 1s">★</span>
@@ -232,7 +221,6 @@
 
     <div class="max-w-7xl mx-auto">
       <div class="grid md:grid-cols-2 gap-12 items-center hero-grid">
-        <!-- Left Content -->
         <div class="fade-in">
           <p class="hero-tag mb-6">👋 Hey, I'm</p>
           
@@ -259,7 +247,6 @@
           </div>
         </div>
 
-        <!-- Right: Hanging Profile Card -->
         <div class="flex justify-center fade-in" style="animation-delay: 0.2s">
           <div class="hanging-wrapper">
             <div class="hanging-pin"></div>
@@ -277,7 +264,6 @@
     </div>
   </section>
 
-  <!-- ✅ MY INFORMATION SECTION — ADDED -->
   <section id="about" class="py-20 px-6">
     <div class="max-w-3xl mx-auto">
       <div class="text-center mb-12 fade-in">
@@ -325,7 +311,6 @@
     </div>
   </section>
 
-  <!-- EDUCATION SECTION -->
   <section id="education" class="py-20 px-6 bg-purple-950/30">
     <div class="max-w-4xl mx-auto">
       <div class="text-center mb-12 fade-in">
@@ -334,7 +319,6 @@
       </div>
 
       <div class="space-y-4">
-        <!-- College -->
         <div class="edu-card fade-in">
           <h4>🎓 College</h4>
           <p class="font-bold text-lg text-white">Nueva Vizcaya State University</p>
@@ -342,7 +326,6 @@
           <p class="text-sm text-gray-400 mt-1">Currently Studying</p>
         </div>
 
-        <!-- High School -->
         <div class="edu-card fade-in" style="animation-delay: 0.1s">
           <h4>🏫 High School</h4>
           <p class="font-bold text-lg text-white">Solano High School</p>
@@ -350,7 +333,6 @@
           <p class="text-sm text-gray-400 mt-1">Solano, Nueva Vizcaya</p>
         </div>
 
-        <!-- Elementary -->
         <div class="edu-card fade-in" style="animation-delay: 0.2s">
           <h4>📚 Elementary</h4>
           <p class="font-bold text-lg text-white">Bagahabag Elementary School</p>
@@ -361,7 +343,7 @@
     </div>
   </section>
 
-  <!-- PROJECTS SECTION -->
+  <!-- ✅ UPDATED PROJECTS SECTION -->
   <section id="projects" class="py-20 px-6">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-12 fade-in">
@@ -370,50 +352,50 @@
       </div>
 
       <div class="grid md:grid-cols-3 gap-8">
-        <!-- Project 1 -->
+        <!-- PROJECT 1: LABORATORY MAINTENANCE SYSTEM -->
         <div class="flex flex-col items-center fade-in">
           <div class="hanging-wrapper">
             <div class="hanging-pin"></div>
             <div class="hanging-string"></div>
             <div class="project-card p-5 w-full">
               <div class="bg-purple-900/50 rounded-lg h-40 flex items-center justify-center mb-4">
-                <i class="fa fa-code text-5xl text-yellow-400"></i>
+                <i class="fa fa-flask text-5xl text-yellow-400"></i>
               </div>
-              <h3 class="font-bold text-xl mb-2">Web Development</h3>
-              <p class="text-gray-400 text-sm mb-3">Responsive & functional websites built with modern tools.</p>
-              <span class="text-cyan-400 text-sm font-semibold">HTML • CSS • JS</span>
+              <h3 class="font-bold text-xl mb-2">Laboratory Maintenance Request System</h3>
+              <p class="text-gray-400 text-sm mb-3">A computerized system for submitting, tracking, and managing laboratory maintenance requests. Built to replace manual processes and improve efficiency.</p>
+              <span class="text-cyan-400 text-sm font-semibold">HTML • CSS • JavaScript • Database • RAD SDLC</span>
             </div>
           </div>
         </div>
 
-        <!-- Project 2 -->
+        <!-- PROJECT 2: DIGITAL RECEIPT SYSTEM -->
         <div class="flex flex-col items-center fade-in" style="animation-delay: 0.15s">
           <div class="hanging-wrapper">
             <div class="hanging-pin"></div>
             <div class="hanging-string"></div>
             <div class="project-card p-5 w-full">
               <div class="bg-cyan-900/50 rounded-lg h-40 flex items-center justify-center mb-4">
-                <i class="fa fa-database text-5xl text-cyan-400"></i>
+                <i class="fa fa-file-text text-5xl text-cyan-400"></i>
               </div>
-              <h3 class="font-bold text-xl mb-2">System Development</h3>
-              <p class="text-gray-400 text-sm mb-3">Information systems & database solutions.</p>
-              <span class="text-yellow-400 text-sm font-semibold">Database • Design</span>
+              <h3 class="font-bold text-xl mb-2">Digital Receipt & Fund Management System</h3>
+              <p class="text-gray-400 text-sm mb-3">Web-based system for recording fees, payments, and generating downloadable receipts. Includes officer login and student records.</p>
+              <span class="text-yellow-400 text-sm font-semibold">HTML • CSS • JavaScript • html2canvas</span>
             </div>
           </div>
         </div>
 
-        <!-- Project 3 -->
+        <!-- PROJECT 3: MORE PROJECTS -->
         <div class="flex flex-col items-center fade-in" style="animation-delay: 0.3s">
           <div class="hanging-wrapper">
             <div class="hanging-pin"></div>
             <div class="hanging-string"></div>
             <div class="project-card p-5 w-full">
               <div class="bg-pink-900/50 rounded-lg h-40 flex items-center justify-center mb-4">
-                <i class="fa fa-paint-brush text-5xl text-pink-400"></i>
+                <i class="fa fa-code text-5xl text-pink-400"></i>
               </div>
-              <h3 class="font-bold text-xl mb-2">Digital Design</h3>
-              <p class="text-gray-400 text-sm mb-3">Graphics, layouts & creative visuals.</p>
-              <span class="text-pink-400 text-sm font-semibold">Design • Editing</span>
+              <h3 class="font-bold text-xl mb-2">More Projects & Development</h3>
+              <p class="text-gray-400 text-sm mb-3">Exploring more IT solutions, web apps, and system development projects.</p>
+              <span class="text-pink-400 text-sm font-semibold">Always Learning 💻</span>
             </div>
           </div>
         </div>
@@ -421,7 +403,6 @@
     </div>
   </section>
 
-  <!-- SKILLS SECTION -->
   <section id="skills" class="py-20 px-6 bg-purple-950/30">
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-12 fade-in">
@@ -466,7 +447,6 @@
     </div>
   </section>
 
-  <!-- CONTACT SECTION -->
   <section id="contact" class="py-20 px-6">
     <div class="max-w-2xl mx-auto text-center fade-in">
       <h2 class="font-bangers text-5xl text-yellow-400 mb-4">Let's Make Something DOPE! 🚀</h2>
@@ -486,16 +466,13 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <p class="font-bangers text-2xl text-yellow-400 mb-2">LOUISSIE STEPHEN NARITO</p>
     <p class="text-gray-400">BSIT Student • Nueva Vizcaya State University</p>
     <p class="mt-4 text-sm text-gray-500">© 2026 — Built with 💜 and lots of code</p>
   </footer>
 
-  <!-- ANIMATION SCRIPT -->
   <script>
-    // Fade-in on scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) e.target.classList.add('visible');
@@ -506,7 +483,6 @@
       observer.observe(el);
     });
 
-    // Mobile menu toggle
     const menuBtn = document.querySelector('button.md\\:hidden');
     const navLinks = document.querySelector('.nav-links');
     menuBtn?.addEventListener('click', () => {
@@ -522,5 +498,4 @@
   </script>
 
 </body>
-            </html>
-            
+</html>
