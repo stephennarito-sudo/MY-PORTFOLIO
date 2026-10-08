@@ -163,6 +163,30 @@
     }
     .skill-icon:hover { background: var(--purple); color: white; transform: scale(1.1); }
 
+    /* EDUCATION CARDS */
+    .edu-card {
+      background: var(--card-light);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--purple);
+      transition: transform 0.3s ease;
+    }
+    .edu-card:hover {
+      transform: translateX(8px);
+      border-left-color: var(--yellow);
+    }
+    .edu-card h4 {
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+      color: var(--yellow);
+    }
+    .edu-card p {
+      color: #ccc;
+      font-size: 0.95rem;
+    }
+
     /* FOOTER */
     footer {
       background: var(--card); padding: 3rem; text-align: center;
@@ -182,6 +206,7 @@
       <span class="font-bangers text-2xl text-yellow-400">LSN</span>
       <div class="nav-links hidden md:flex gap-4">
         <a href="#home">Home</a>
+        <a href="#education">Education</a>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
         <a href="#about">About</a>
@@ -213,14 +238,15 @@
           </h1>
           
           <p class="text-lg text-gray-300 mb-2">System Creator • Web Developer • Software Engineer</p>
+          <p class="text-md text-purple-300 mb-4">🎓 Nueva Vizcaya State University</p>
           
           <div class="chat-bubble mb-8">
             Let's Create Something Awesome! ⚡
           </div>
           
           <div class="flex flex-wrap gap-4">
-            <a href="#projects" class="btn-yellow">
-              <i class="fa fa-play-circle mr-2"></i> View Projects
+            <a href="#education" class="btn-yellow">
+              <i class="fa fa-graduation-cap mr-2"></i> My Education
             </a>
             <a href="#contact" class="btn-cyan">
               Connect With Me <i class="fa fa-arrow-right ml-1"></i>
@@ -238,9 +264,45 @@
                    class="w-full h-80 object-cover rounded-xl mb-4 border-4 border-yellow-400" />
               <h3 class="font-bangers text-2xl text-center text-yellow-400">LOUISSIE</h3>
               <p class="text-center text-gray-300">BSIT Student • Developer</p>
-              <p class="text-sm text-center text-cyan-400 mt-2">Building digital solutions 💜</p>
+              <p class="text-sm text-center text-cyan-400 mt-2">Nueva Vizcaya State University 💜</p>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ EDUCATION SECTION — ADDED -->
+  <section id="education" class="py-20 px-6 bg-purple-950/30">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12 fade-in">
+        <h2 class="font-bangers text-5xl text-yellow-400 mb-4">MY EDUCATION</h2>
+        <p class="text-gray-400">Where I learned and grew</p>
+      </div>
+
+      <div class="space-y-4">
+        <!-- College -->
+        <div class="edu-card fade-in">
+          <h4>🎓 College</h4>
+          <p class="font-bold text-lg text-white">Nueva Vizcaya State University</p>
+          <p>Bachelor of Science in Information Technology</p>
+          <p class="text-sm text-gray-400 mt-1">Currently Studying</p>
+        </div>
+
+        <!-- High School -->
+        <div class="edu-card fade-in" style="animation-delay: 0.1s">
+          <h4>🏫 High School</h4>
+          <p class="font-bold text-lg text-white">Solano High School</p>
+          <p>Completed Junior & Senior High School</p>
+          <p class="text-sm text-gray-400 mt-1">Solano, Nueva Vizcaya</p>
+        </div>
+
+        <!-- Elementary -->
+        <div class="edu-card fade-in" style="animation-delay: 0.2s">
+          <h4>📚 Elementary</h4>
+          <p class="font-bold text-lg text-white">Bagahabag Elementary School</p>
+          <p>Completed Elementary Education</p>
+          <p class="text-sm text-gray-400 mt-1">Bagahabag, Nueva Vizcaya</p>
         </div>
       </div>
     </div>
@@ -255,7 +317,7 @@
       </div>
 
       <div class="grid md:grid-cols-3 gap-8">
-        <!-- Project 1 - Hanging Style -->
+        <!-- Project 1 -->
         <div class="flex flex-col items-center fade-in">
           <div class="hanging-wrapper">
             <div class="hanging-pin"></div>
@@ -358,7 +420,7 @@
         <h2 class="font-bangers text-4xl text-yellow-400 mb-6">About Me ✏️</h2>
         
         <p class="text-lg mb-4">
-          I'm <strong class="text-cyan-400">Louissie Stephen Narito</strong> — a BSIT student passionate about turning ideas into functional digital solutions.
+          I'm <strong class="text-cyan-400">Louissie Stephen Narito</strong> — a proud student of <strong class="text-yellow-400">Nueva Vizcaya State University</strong>, pursuing Bachelor of Science in Information Technology.
         </p>
         <p class="text-lg mb-4">
           From building websites to designing information systems, I love creating tools that help people and organizations. Every project is a chance to learn, grow, and make something useful.
@@ -393,7 +455,7 @@
   <!-- FOOTER -->
   <footer>
     <p class="font-bangers text-2xl text-yellow-400 mb-2">LOUISSIE STEPHEN NARITO</p>
-    <p class="text-gray-400">BSIT Student • System Creator • Web Developer</p>
+    <p class="text-gray-400">BSIT Student • Nueva Vizcaya State University</p>
     <p class="mt-4 text-sm text-gray-500">© 2026 — Built with 💜 and lots of code</p>
   </footer>
 
@@ -426,4 +488,5 @@
   </script>
 
 </body>
-</html>
+  </html>
+  
