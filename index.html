@@ -163,8 +163,8 @@
     }
     .skill-icon:hover { background: var(--purple); color: white; transform: scale(1.1); }
 
-    /* EDUCATION CARDS */
-    .edu-card {
+    /* EDUCATION & INFO CARDS */
+    .edu-card, .info-card {
       background: var(--card-light);
       border-radius: 12px;
       padding: 1.5rem;
@@ -172,20 +172,25 @@
       border-left: 4px solid var(--purple);
       transition: transform 0.3s ease;
     }
-    .edu-card:hover {
+    .edu-card:hover, .info-card:hover {
       transform: translateX(8px);
       border-left-color: var(--yellow);
     }
-    .edu-card h4 {
+    .edu-card h4, .info-card h4 {
       font-weight: bold;
       font-size: 1.1rem;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.5rem;
       color: var(--yellow);
     }
-    .edu-card p {
-      color: #ccc;
-      font-size: 0.95rem;
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(123,44,191,0.2);
     }
+    .info-row:last-child { border-bottom: none; }
+    .info-label { color: var(--cyan); font-weight: 600; }
+    .info-value { color: white; }
 
     /* FOOTER */
     footer {
@@ -206,10 +211,10 @@
       <span class="font-bangers text-2xl text-yellow-400">LSN</span>
       <div class="nav-links hidden md:flex gap-4">
         <a href="#home">Home</a>
+        <a href="#about">My Info</a>
         <a href="#education">Education</a>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
-        <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </div>
       <button class="md:hidden text-2xl"><i class="fa fa-bars"></i></button>
@@ -245,8 +250,8 @@
           </div>
           
           <div class="flex flex-wrap gap-4">
-            <a href="#education" class="btn-yellow">
-              <i class="fa fa-graduation-cap mr-2"></i> My Education
+            <a href="#about" class="btn-yellow">
+              <i class="fa fa-user mr-2"></i> My Info
             </a>
             <a href="#contact" class="btn-cyan">
               Connect With Me <i class="fa fa-arrow-right ml-1"></i>
@@ -272,7 +277,55 @@
     </div>
   </section>
 
-  <!-- ✅ EDUCATION SECTION — ADDED -->
+  <!-- ✅ MY INFORMATION SECTION — ADDED -->
+  <section id="about" class="py-20 px-6">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-12 fade-in">
+        <h2 class="font-bangers text-5xl text-yellow-400 mb-4">MY INFORMATION</h2>
+        <p class="text-gray-400">Get to know me better</p>
+      </div>
+
+      <div class="paper-card p-8 fade-in">
+        <p class="text-lg mb-6 leading-relaxed">
+          I am <strong class="text-cyan-400">Louissie Stephen Narito</strong>, <strong class="text-yellow-400">21 years old</strong>, and currently taking <strong>Bachelor of Science in Information Technology</strong> at <strong class="text-purple-300">Nueva Vizcaya State University</strong>.
+        </p>
+        
+        <div class="info-card">
+          <h4><i class="fa fa-id-card-o mr-2"></i> Personal Details</h4>
+          <div class="info-row">
+            <span class="info-label">Full Name</span>
+            <span class="info-value">Louissie Stephen Narito</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Age</span>
+            <span class="info-value">21 years old</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Birthday</span>
+            <span class="info-value">November 18, 2005</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Status</span>
+            <span class="info-value text-pink-400">Single 💜</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Course</span>
+            <span class="info-value">Bachelor of Science in Information Technology</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">University</span>
+            <span class="info-value">Nueva Vizcaya State University</span>
+          </div>
+        </div>
+
+        <p class="mt-6 text-lg text-yellow-300 font-semibold">
+          🎯 Goal: To become a skilled developer and make a positive impact through technology.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION SECTION -->
   <section id="education" class="py-20 px-6 bg-purple-950/30">
     <div class="max-w-4xl mx-auto">
       <div class="text-center mb-12 fade-in">
@@ -413,25 +466,6 @@
     </div>
   </section>
 
-  <!-- ABOUT SECTION -->
-  <section id="about" class="py-20 px-6">
-    <div class="max-w-4xl mx-auto">
-      <div class="paper-card p-8 fade-in">
-        <h2 class="font-bangers text-4xl text-yellow-400 mb-6">About Me ✏️</h2>
-        
-        <p class="text-lg mb-4">
-          I'm <strong class="text-cyan-400">Louissie Stephen Narito</strong> — a proud student of <strong class="text-yellow-400">Nueva Vizcaya State University</strong>, pursuing Bachelor of Science in Information Technology.
-        </p>
-        <p class="text-lg mb-4">
-          From building websites to designing information systems, I love creating tools that help people and organizations. Every project is a chance to learn, grow, and make something useful.
-        </p>
-        <p class="text-lg text-yellow-300 font-semibold">
-          🎯 Goal: To become a skilled developer and make a positive impact through technology.
-        </p>
-      </div>
-    </div>
-  </section>
-
   <!-- CONTACT SECTION -->
   <section id="contact" class="py-20 px-6">
     <div class="max-w-2xl mx-auto text-center fade-in">
@@ -488,5 +522,5 @@
   </script>
 
 </body>
-  </html>
-  
+            </html>
+            
